@@ -46,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.timeOutputLocal = new System.Windows.Forms.TextBox();
             this.updateRateLabel = new System.Windows.Forms.Label();
+            this.successLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,6 +188,19 @@
             this.updateRateLabel.Size = new System.Drawing.Size(0, 13);
             this.updateRateLabel.TabIndex = 0;
             // 
+            // successLabel
+            // 
+            this.successLabel.AutoSize = true;
+            this.successLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.successLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.successLabel.Location = new System.Drawing.Point(539, 404);
+            this.successLabel.Name = "successLabel";
+            this.successLabel.Size = new System.Drawing.Size(99, 13);
+            this.successLabel.TabIndex = 0;
+            this.successLabel.Text = "Задача запущена.";
+            this.successLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.successLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +215,7 @@
             this.Controls.Add(this.timeOutputLocal);
             this.Controls.Add(this.timeOutput);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.successLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.updateRateLabel);
             this.Controls.Add(this.label4);
@@ -235,6 +250,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox timeOutputLocal;
         private System.Windows.Forms.Label updateRateLabel;
+        private System.Windows.Forms.Label successLabel;
     }
 }
 

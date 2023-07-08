@@ -14,7 +14,7 @@ namespace TimeSyncService
     public class TimeSyncUpdater
     {
         Thread thread = null;
-        private string NtpAddress {  get; set; }
+        public string NtpAddress {private get; set; }
         public TimeSyncUpdater(string ntpAddress) 
         {
             NtpAddress = ntpAddress;

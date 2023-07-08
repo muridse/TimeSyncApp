@@ -22,17 +22,13 @@ namespace TimeSyncApp
             TimeSyncUpdater = new TimeSyncUpdater(SyncConfiguration.IpAddress);
             InitializeComponent();
 
-
             //string adr = "91.206.16.3";
-            string adr = SyncConfiguration.IpAddress;
-            int updateRateInHours = SyncConfiguration.UpdateRateInHours;
-            bool autoUpdateEnable = SyncConfiguration.autoUpdateEnabled;
-
 
             ipAdressField.Text = SyncConfiguration.IpAddress;
             
             checkBox1.Checked = SyncConfiguration.autoUpdateEnabled;
-            
+            successLabel.Visible = SyncConfiguration.autoUpdateEnabled;
+
             timeOutput.ReadOnly = true;
             timeOutputLocal.ReadOnly = true;
 
@@ -47,7 +43,8 @@ namespace TimeSyncApp
             // When tray icon clicked, trigger window state change.       
             notifyIcon1.Click += ToggleMinimizeState;
 
-            
+
+            TimeSyncUpdater.StartUpdateEvery(hoursToMs(SyncConfiguration.UpdateRateInHours));
 
         }
 
@@ -92,13 +89,24 @@ namespace TimeSyncApp
         {
             if (checkBox1.Checked) 
             {
-                
+                TimeSyncUpdater.StartUpdateEvery(hoursToMs(trackBar1.Value));
+                successLabel.Visible = true;
             }
+            else
+                successLabel.Visible = false;
         }
 
         private void updateTime(object sender, EventArgs e)
         {
-
+            TimeSyncUpdater.NtpAddress = ipAdressField.Text;
+            TimeSyncUpdater.UpdateTime();
+            showTime(sender, e);
+        }
+        private int hoursToMs(int hours) 
+        {
+            var minutes = hours * 60;
+            var seconds = minutes * 60;
+            return seconds * 1000;
         }
     }
 }
