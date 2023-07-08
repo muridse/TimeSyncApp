@@ -62,22 +62,6 @@ namespace TimeSyncApp
             timeOutputLocal.Text = DateTime.Now.ToString();
 
         }
-        // Toggle state between Normal and Minimized.
-        private void ToggleMinimizeState(object sender, EventArgs e)
-        {
-            bool isMinimized = this.WindowState == FormWindowState.Minimized;
-            this.WindowState = (isMinimized) ? FormWindowState.Normal : FormWindowState.Minimized;
-        }
-
-        // Show/Hide window and tray icon to match window state.
-        private void SetMinimizeState(object sender, EventArgs e)
-        {
-            bool isMinimized = this.WindowState == FormWindowState.Minimized;
-
-            this.ShowInTaskbar = !isMinimized;
-            notifyIcon1.Visible = isMinimized;
-            if (isMinimized) notifyIcon1.ShowBalloonTip(500, "Time Sync", "Приложение свернуто в трей.", ToolTipIcon.Info);
-        }
         private string GetNetTimeString() 
         {
             var adr = ipAdressField.Text;
@@ -128,7 +112,22 @@ namespace TimeSyncApp
             var seconds = minutes * 60;
             return seconds * 1000;
         }
+        // Toggle state between Normal and Minimized.
+        private void ToggleMinimizeState(object sender, EventArgs e)
+        {
+            bool isMinimized = this.WindowState == FormWindowState.Minimized;
+            this.WindowState = (isMinimized) ? FormWindowState.Normal : FormWindowState.Minimized;
+        }
 
+        // Show/Hide window and tray icon to match window state.
+        private void SetMinimizeState(object sender, EventArgs e)
+        {
+            bool isMinimized = this.WindowState == FormWindowState.Minimized;
+
+            this.ShowInTaskbar = !isMinimized;
+            notifyIcon1.Visible = isMinimized;
+            if (isMinimized) notifyIcon1.ShowBalloonTip(500, "Time Sync", "Приложение свернуто в трей.", ToolTipIcon.Info);
+        }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Приложение будет закрыто, а сервис синхронизации времени будет остановлен. Вы уверены?", "Time Sync",
