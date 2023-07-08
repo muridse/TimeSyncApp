@@ -4,3 +4,8 @@
 With hiding application in tray
 Implementation of the singleton pattern
 And a separate thread for time correction
+
+## .config file content example:
+ipAddress = 91.207.136.55
+updateRateInHours = 24
+autoUpdateEnable = true
