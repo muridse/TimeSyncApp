@@ -1,0 +1,12 @@
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\bin\Release\TimeSyncApp.exe
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\bin\Release\TimeSyncApp.pdb
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\bin\Release\TimeSyncService.dll
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\bin\Release\TimeSyncService.pdb
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.csproj.AssemblyReference.cache
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.Form1.resources
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.Properties.Resources.resources
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.csproj.GenerateResource.cache
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.csproj.CoreCompileInputs.cache
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.csproj.CopyComplete
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.exe
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncApp\obj\Release\TimeSyncApp.pdb

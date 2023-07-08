@@ -1,0 +1,6 @@
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\bin\Release\TimeSyncService.dll
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\bin\Release\TimeSyncService.pdb
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\obj\Release\TimeSyncService.csproj.AssemblyReference.cache
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\obj\Release\TimeSyncService.csproj.CoreCompileInputs.cache
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\obj\Release\TimeSyncService.dll
+C:\Users\mur1d\source\repos\TimeSyncApp\TimeSyncService\obj\Release\TimeSyncService.pdb
