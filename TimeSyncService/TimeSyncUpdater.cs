@@ -21,8 +21,13 @@ namespace TimeSyncService
         }
         public void StartUpdateEvery(int milliseconds) 
         {
-            if (thread != null) thread.Abort();
+            Abort();
             thread = new Thread(() => { Run(milliseconds); });
+            thread.Start();
+        }
+        public void Abort() 
+        {
+            if (thread != null) thread.Abort();
         }
 
         private void Run(int milliseconds) 

@@ -21,7 +21,7 @@ namespace TimeSyncApp
             SyncConfiguration = syncConfiguration;
             TimeSyncUpdater = new TimeSyncUpdater(SyncConfiguration.IpAddress);
             InitializeComponent();
-
+            
             //string adr = "91.206.16.3";
 
             ipAdressField.Text = SyncConfiguration.IpAddress;
@@ -44,8 +44,10 @@ namespace TimeSyncApp
             notifyIcon1.Click += ToggleMinimizeState;
 
 
-            TimeSyncUpdater.StartUpdateEvery(hoursToMs(SyncConfiguration.UpdateRateInHours));
+            if(syncConfiguration.autoUpdateEnabled)
+                TimeSyncUpdater.StartUpdateEvery(hoursToMs(SyncConfiguration.UpdateRateInHours));
 
+            //this.WindowState = FormWindowState.Minimized;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -107,6 +109,10 @@ namespace TimeSyncApp
             var minutes = hours * 60;
             var seconds = minutes * 60;
             return seconds * 1000;
+        }
+        private void Form1_FormClosing(object sender, EventArgs e)
+        {
+            TimeSyncUpdater.Abort();
         }
     }
 }
