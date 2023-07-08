@@ -47,6 +47,7 @@
             this.timeOutputLocal = new System.Windows.Forms.TextBox();
             this.updateRateLabel = new System.Windows.Forms.Label();
             this.successLabel = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,9 +140,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(441, 301);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(164, 13);
+            this.label5.Size = new System.Drawing.Size(170, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Настойка периода обновления";
+            this.label5.Text = "Настройка периода обновления";
             // 
             // button2
             // 
@@ -201,6 +202,19 @@
             this.successLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.successLabel.Visible = false;
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.errorLabel.ForeColor = System.Drawing.Color.Crimson;
+            this.errorLabel.Location = new System.Drawing.Point(513, 417);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(154, 13);
+            this.errorLabel.TabIndex = 0;
+            this.errorLabel.Text = "Ошибка на стороне сервера.";
+            this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.errorLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +229,7 @@
             this.Controls.Add(this.timeOutputLocal);
             this.Controls.Add(this.timeOutput);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.successLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.updateRateLabel);
@@ -222,10 +237,12 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Time Sync";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,6 +268,7 @@
         private System.Windows.Forms.TextBox timeOutputLocal;
         private System.Windows.Forms.Label updateRateLabel;
         private System.Windows.Forms.Label successLabel;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 

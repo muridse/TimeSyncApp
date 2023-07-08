@@ -42,7 +42,8 @@ namespace TimeSyncService
         {
             var requester = NetworkTimeRequester.getInstance();
             var time = requester.GetNetworkTimeToLocal(NtpAddress);
-            SetSystemDateTime(time);
+            if(time != DateTime.MinValue.ToLocalTime())
+                SetSystemDateTime(time);
         }
         private static void SetSystemDateTime(DateTime time)
         {

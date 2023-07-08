@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TimeSyncService;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TimeSyncApp
 {
@@ -89,13 +90,30 @@ namespace TimeSyncApp
 
         private void setSettings(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) 
+            if (checkBox1.Checked)
             {
-                TimeSyncUpdater.StartUpdateEvery(hoursToMs(trackBar1.Value));
-                successLabel.Visible = true;
+                var adr = ipAdressField.Text;
+                var time = NetworkTimeRequester.getInstance();
+                DateTime serverTimeNow = time.GetNetworkTime(adr, true);
+                if (serverTimeNow == DateTime.MinValue)
+                {
+                    errorLabel.Visible = true;
+                    checkBox1.Checked = false;
+                    successLabel.Visible = false;
+                }
+                else 
+                {
+                    TimeSyncUpdater.StartUpdateEvery(hoursToMs(trackBar1.Value));
+                    successLabel.Visible = true;
+                    errorLabel.Visible = false;
+                }
             }
-            else
+            else 
+            {
                 successLabel.Visible = false;
+                TimeSyncUpdater.Abort();
+            }
+                
         }
 
         private void updateTime(object sender, EventArgs e)
@@ -110,8 +128,17 @@ namespace TimeSyncApp
             var seconds = minutes * 60;
             return seconds * 1000;
         }
-        private void Form1_FormClosing(object sender, EventArgs e)
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (MessageBox.Show("Приложение будет закрыто, а сервис синхронизации времени будет остановлен. Вы уверены?", "Time Sync",
+                   MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                // Cancel the Closing event from closing the form.
+                e.Cancel = true;
+                // Call method to save file...
+            }
+
             TimeSyncUpdater.Abort();
         }
     }
